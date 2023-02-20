@@ -16,7 +16,7 @@ echo "Backup: Script Start -- $(date +%Y%m%d_%H%M)" >> $LOGFILE
 dd if=$INPUT | gzip > $OUTPUT
 fdisk -l >> $BACKUP_PATH"/"$DATE"_fdisk.txt"
 
-echo "Remove Backup Files older than " $DAYS " days..."
+echo "Remove Backup Files older than " $DAYS " days..." >> $LOGFILE
 
 find $BACKUP_PATH -mtime +$DAYS -type f -delete -print >> $LOGFILE
 
